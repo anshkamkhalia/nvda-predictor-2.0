@@ -1,0 +1,121 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap');
+
+/* Base styling */
+body {
+  background: linear-gradient(135deg, #101820, #1c2b36, #22303f);
+  font-family: 'Outfit', sans-serif;
+  color: #e6e6e6;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Container */
+#container {
+  display: flex;
+  flex-direction: column;
+  animation: glowColorPulse 3.5s ease-in-out infinite, fadeInContainer 1s ease-in-out;
+  gap: 20px;
+  padding: 35px 30px;
+  border-radius: 18px;
+  width: 380px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+  text-align: center;
+  font-family: 'Outfit', sans-serif;
+  position: relative;
+  z-index: 2; /* Stay above the animated graph */
+}
+
+/* Buttons */
+button {
+  background: transparent;
+  color: #58f7c6;
+  border: 2px solid #58f7c6;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #58f7c6;
+  color: #101820;
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 6px 18px rgba(88, 247, 198, 0.35);
+}
+
+/* Subtle animation */
+@keyframes fadeInContainer {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes glowColorPulse {
+  0%, 100% {
+    box-shadow: 0 0 10px  #58f7c6, 0 0 20px #58f7c6, 0 0 30px  #58f7c6;
+  }
+  50% {
+    box-shadow: 0 0 20px  #58f7c6(34, 131, 34), 0 0 30px  #58f7c6(34, 131, 34), 0 0 40px  #58f7c6(34, 131, 34);
+  }
+}
+
+/* Centered text */
+#cdb {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  color: #f5f5f5;
+}
+
+/* 🔥 Jagged stock graph animation */
+.stock-graph-svg {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  transform: translateY(-50%);
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.stock-graph-svg svg {
+  width: 200%; /* for scrolling effect */
+  height: 100%;
+  overflow: visible;
+}
+
+.stock-graph-svg polyline {
+  fill: none;
+  stroke: #00ff99;
+  stroke-width: 3;
+  stroke-linejoin: bevel;
+  filter: drop-shadow(0 0 5px #00ff99);
+  animation: scrollJagged 6s linear infinite;
+}
+
+/* Animation for jagged line scroll */
+@keyframes scrollJagged {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
