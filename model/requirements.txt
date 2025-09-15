@@ -5,4 +5,4 @@ pandas
 scikit-learn
 yagmail
 yfinance
-mangums
+mangum
