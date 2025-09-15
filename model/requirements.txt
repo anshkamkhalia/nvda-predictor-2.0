@@ -1,0 +1,8 @@
+flask
+tensorflow
+numpy<2.0
+pandas
+scikit-learn
+yagmail
+yfinance
+mangums
